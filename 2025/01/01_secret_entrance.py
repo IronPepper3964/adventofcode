@@ -9,14 +9,8 @@
 with open('2025/01/input/aoc01_01.txt', 'r') as file:
     puzzle_input = file.readlines()
 
-test_item:str = puzzle_input[0]
-increasing:bool = True
-print(test_item)
-
-
-count:int = 0
-
 def parse_rotation(rotation:str):
+    # Handle rotations over 100
     return (rotation[0], (int(rotation[1:])%100))
 
 def rollover_adjust(position:int):
