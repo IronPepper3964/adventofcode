@@ -10,11 +10,11 @@ This code is my attempts to solve the Advent of Code puzzles, starting with 2025
 
 ## Allowances:
 1. Solutions do not need to be production grade.
-2. Solutions do not need to be done in a 'normal' or best practice way
+2. Solutions do not need to follow best practices
 2. Documentation is optional
 3. Error handling is optional (and generally expected to be skipped)
 
-## Optional goals after completion:
+## Optional Goals:
 * Complete previous years puzzles
 * Cleanup existing solutions
     * Use best practices
