@@ -21,7 +21,27 @@ This code is my attempts to solve the Advent of Code puzzles, starting with 2025
     * Add Documentation
     * Improve approaches to solving the puzzles
 
-## Note about redundant code
+# Current Progress
+### 2025
+``` text
+*******...***...........
+
+1   * *
+2   * *
+3   * *
+4   * 
+5   
+6   * *
+7   * 
+8   
+9   
+10  
+11  
+12  
+```
+------------------
+
+### Note about redundant code
 Many (if not all) of the puzzles share common code.  
 
 Normally I would move these to their own class/library to be reused.  However, to keep each puzzle solution 'self-contained', I opted to copy/paste the code into the puzzles that need them.  Generally I wanted someone to be able to view/run the entire puzzle solution using just a single file without external imports.
