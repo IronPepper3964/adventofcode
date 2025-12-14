@@ -1,7 +1,6 @@
 import math
 import logging
 
-#log_level = logging.DEBUG
 log_level = logging.INFO
 
 logging.basicConfig(level=log_level, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -29,7 +28,7 @@ def is_sequence_duplicated(sequence: str, in_str: str) -> bool:
     for i in range(1,seq_count):
         tmp_start = seq_len * i
         logger.debug(f"{'matches' if sequence == in_str[tmp_start:(tmp_start+seq_len)] else 'no match'} | {sequence} != in_str[{tmp_start}:{(tmp_start+seq_len)}] | {in_str[tmp_start:(tmp_start+seq_len)]}")
-        #if sequence != in_str[len(sequence):len(sequence)*2]:
+
         if sequence != in_str[tmp_start:(tmp_start+seq_len)]:
             return False
     return True
