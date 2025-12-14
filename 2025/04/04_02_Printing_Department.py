@@ -33,17 +33,26 @@ logger.debug(puzzle_input)
 ###############
 ## Problem:
 ##
-## The forklifts can only access a roll of paper if there are 
+## The forklifts can only access a roll of paper if there are
 ## fewer than four rolls of paper in the eight adjacent positions.
 ## How many rolls of paper can be accessed by a forklift?
+##
+## Once a roll of paper can be accessed by a forklift, it can be removed.
 ###############
 
 ###############
 ## Strategy:
 ##
 ## * Change the puzzle_input into a 2D list of characters.
-## * Create a function that takes in the current x/y coordinate and then checks surrounding spaces to count the `@` symbol counts
+## * Create a function that takes in the current x/y coordinate and then checks surrounding spaces
+##     to count the `@` symbol counts
 ## * Loop through all locations with an `@` to count the number that can be moved
+##
+## Part 2 changes:
+## Since the base code exists and efficiency isn't a goal - this can be solved by
+## * Updating the puzzle_input after each loop where a roll is removed
+## * continuing to itterate over the entire process until
+##     no rolls have been removed after a full pass
 ###############
 
 
@@ -56,6 +65,22 @@ def puzzle_input_to_2d_list(in_puzzle_input: List[str]) -> List[List[str]]:
         for c in r:
             pir.append(c)
         return_puzzle_input.append(pir)
+
+    return return_puzzle_input
+
+
+def remove_roll_from_puzzle_input(
+    x: int, y: int, in_puzzle_input: List[List[str]]
+) -> List[List[str]]:
+    return_puzzle_input: List[List[str]] = [[]]
+    return_puzzle_input.clear()
+
+    for r, row in enumerate(in_puzzle_input):
+        for c, col in enumerate(row):
+            if r == x and c == y:
+                # Remove the roll
+                row[c] = "."
+        return_puzzle_input.append(row)
 
     return return_puzzle_input
 
@@ -92,13 +117,19 @@ logger.debug(get_adjacent_roll_count(0, 0, puzzle_input))
 
 # Main loop
 movable_roll_count: int = 0
-for r, row in enumerate(puzzle_input):
-    logger.debug("row: %s | %s", r, row)
-    for c, col in enumerate(row):
-        logger.debug("col: %s | %s", c, col)
-        if col != "@":
-            continue
-        if get_adjacent_roll_count(r, c, puzzle_input) < 4:
-            movable_roll_count += 1
+roll_removed: bool = True
+
+while roll_removed:
+    roll_removed = False
+    for r, row in enumerate(puzzle_input):
+        logger.debug("row: %s | %s", r, row)
+        for c, col in enumerate(row):
+            logger.debug("col: %s | %s", c, col)
+            if col != "@":
+                continue
+            if get_adjacent_roll_count(r, c, puzzle_input) < 4:
+                movable_roll_count += 1
+                remove_roll_from_puzzle_input(r, c, puzzle_input)
+                roll_removed = True
 
 logger.info("Result: %s", movable_roll_count)
