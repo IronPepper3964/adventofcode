@@ -43,3 +43,6 @@ logger.debug(puzzle_input)
 ## Strategy:
 ##
 ###############
+result_var:int = -1
+
+logger.info("Result: %s", result_var)

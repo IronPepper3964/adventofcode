@@ -24,13 +24,13 @@ This code is my attempts to solve the Advent of Code puzzles, starting with 2025
 # Current Progress
 ### 2025
 ``` text
-*******...***...........
+*********.***...........
 
 1   * *
 2   * *
 3   * *
-4   * 
-5   
+4   * *
+5   * 
 6   * *
 7   * 
 8   
