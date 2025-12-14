@@ -20,3 +20,10 @@ This code is my attempts to solve the Advent of Code puzzles, starting with 2025
     * Use best practices
     * Add Documentation
     * Improve approaches to solving the puzzles
+
+## Note about redundant code
+Many (if not all) of the puzzles share common code.  
+
+Normally I would move these to their own class/library to be reused.  However, to keep each puzzle solution 'self-contained', I opted to copy/paste the code into the puzzles that need them.  Generally I wanted someone to be able to view/run the entire puzzle solution using just a single file without external imports.
+
+The most obvious example is my starting code for each puzzle which is readding in and cleaning up the puzzle file.  Really, that should be in it's own file to be reused by all the puzzles with say `aoc_helpers.read_puzzle_input(file_name)`
