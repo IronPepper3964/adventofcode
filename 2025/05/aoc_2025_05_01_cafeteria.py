@@ -6,8 +6,8 @@ from typing import List
 ######
 use_example_input: bool = True
 
-input_file_location:str = "[YYYY]/[DD]/input/aoc_[DD].txt"
-example_input_file_location:str = "[YYYY]/[DD]/input/aoc_[DD]_example.txt"
+input_file_location:str = "2025/05/input/aoc_05.txt"
+example_input_file_location:str = "2025/05/input/aoc_05_example.txt"
 LOG_LEVEL = logging.DEBUG
 
 logging.basicConfig(level=LOG_LEVEL, format="%(asctime)s - %(levelname)s - %(message)s")
