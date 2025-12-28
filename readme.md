@@ -34,7 +34,7 @@ This code is my attempts to solve the Advent of Code puzzles, starting with 2025
 6   * *
 7   * 
 8   
-9   
+9   * 
 10  
 11  
 12  
