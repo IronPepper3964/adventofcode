@@ -38,51 +38,46 @@ function parse_rotation(rotation){
 function rollover_adjust(position)
 {
   if (position >= 0 && position <= 99)
-    return position
+    return position;
 
   if (position < 0)
-    position = 100 + position
+    position = 100 + position;
   else if (position > 99)
-    position = position - 100
+    position = position - 100;
 
-  return position
+  return position;
 }
 
 let current_position = 50;
 let zero_count = 0;
-let previous_position = current_position
+let previous_position = current_position;
 
 let r = puzzle_array.length;
 
 for (let i = 0; i < r; i++){
-  previous_position = current_position
-  console.log("Starting Position: " + current_position);
-  console.log(puzzle_array[i]);
+  previous_position = current_position;
   curr_rotation = parse_rotation(puzzle_array[i]);
-  console.log(typeof curr_rotation);
-  console.log(curr_rotation.dir);
 
   //Add full rotations
-  zero_count += curr_rotation.fullRotationCount
+  zero_count += curr_rotation.fullRotationCount;
   
   if (curr_rotation.dir == "L")
   {
-    console.log("Left!")
-    curr_rotation.rotationRemainder = -curr_rotation.rotationRemainder
+    curr_rotation.rotationRemainder = -curr_rotation.rotationRemainder;
   }
-  console.log("Rot: " + curr_rotation.rotationRemainder);
 
   current_position = current_position + curr_rotation.rotationRemainder;
 
   // determine if 0 was passed
   if ((current_position > 99 || current_position <= 0) && previous_position != 0)
-    zero_count += 1
+    zero_count += 1;
 
   current_position = rollover_adjust(current_position);
 
-  console.log(current_position);
+  console.log("Current Position: " + current_position);
 
-  console.log("current zero count: " + zero_count)
+  console.log("Current zero count: " + zero_count);
 }
 
-console.log("Solution:" + zero_count);
+console.log("");
+console.log("Solution: " + zero_count);

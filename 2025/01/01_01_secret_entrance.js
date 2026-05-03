@@ -37,14 +37,14 @@ function parse_rotation(rotation){
 function rollover_adjust(position)
 {
   if (position >= 0 && position <= 99)
-    return position
+    return position;
 
   if (position < 0)
-    position = 100 + position
+    position = 100 + position;
   else if (position > 99)
-    position = position - 100
+    position = position - 100;
 
-  return position
+  return position;
 }
 
 let current_position = 50;
@@ -53,26 +53,21 @@ let zero_count = 0;
 let r = puzzle_array.length;
 
 for (let i = 0; i < r; i++){
-  console.log("Starting Position: " + current_position);
-  console.log(puzzle_array[i]);
   curr_rotation = parse_rotation(puzzle_array[i]);
-  console.log(typeof curr_rotation);
-  console.log(curr_rotation.dir);
   
   if (curr_rotation.dir == "L")
   {
-    console.log("Left!")
-    curr_rotation.amount = -curr_rotation.amount
+    curr_rotation.amount = -curr_rotation.amount;
   }
-  console.log("Rot: " + curr_rotation.amount);
 
   current_position = current_position + curr_rotation.amount;
   current_position = rollover_adjust(current_position);
 
-  console.log(current_position);
+  console.log("Current Position: " + current_position);
 
   if (current_position == 0)
     zero_count += 1;
 }
 
+console.log("");
 console.log("Solution:" + zero_count);
